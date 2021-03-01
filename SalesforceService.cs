@@ -10,7 +10,7 @@ using Newtonsoft.Json;
 
 namespace salesforce_login_oauth_api_call
 {
-    public interface ISalesforceEventService
+    public interface ISalesforceService
     {
         Task<string> TestCallAsync();
     }
@@ -23,9 +23,9 @@ namespace salesforce_login_oauth_api_call
   
     }
 
-    public class SalesforceEventService : ISalesforceEventService
+    public class SalesforceService : ISalesforceService
     {
-        public SalesforceEventService(IConfiguration configuration)
+        public SalesforceService(IConfiguration configuration)
         {
             Username = configuration.GetSection("Salesforce")["Username"];
             Password = configuration.GetSection("Salesforce")["Password"];
@@ -59,12 +59,10 @@ namespace salesforce_login_oauth_api_call
             var salesforceAuthentificationResponse = await Login();
 
             using var client = new HttpClient();
-
-
-            //Arrage 
+            
+            //Arrage request object
             var request = new HttpRequestMessage(HttpMethod.Get, $"{salesforceAuthentificationResponse.instance_url}{ApiEndpoint}");
             request.Headers.Add("Authorization", $"Bearer {salesforceAuthentificationResponse.access_token}");
-            request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
             //Send request with Auth Token 
             var response = await client.SendAsync(request);
@@ -85,7 +83,7 @@ namespace salesforce_login_oauth_api_call
                 new KeyValuePair<string, string>("client_id", ClientId),
                 new KeyValuePair<string, string>("client_secret", ClientSecret),
                 new KeyValuePair<string, string>("username", Username),
-                new KeyValuePair<string, string>("password", Password + Token)
+                new KeyValuePair<string, string>("password", $"{Password}{Token}")
             });
             var httpClient = new HttpClient();
             var request = new HttpRequestMessage

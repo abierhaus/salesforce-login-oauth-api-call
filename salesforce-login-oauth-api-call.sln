@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31019.35
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "salesforce-login-oauth-api-call", "salesforce-login-oauth-api-call.csproj", "{5FCC7A29-ED62-4036-B156-10D97B463296}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5FCC7A29-ED62-4036-B156-10D97B463296}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FCC7A29-ED62-4036-B156-10D97B463296}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FCC7A29-ED62-4036-B156-10D97B463296}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FCC7A29-ED62-4036-B156-10D97B463296}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8C55ED6D-644E-455C-90EC-D85F18ABA6BE}
+	EndGlobalSection
+EndGlobal

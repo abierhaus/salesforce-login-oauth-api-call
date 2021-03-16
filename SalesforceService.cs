@@ -6,7 +6,6 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
-using Newtonsoft.Json;
 
 namespace salesforce_login_oauth_api_call
 {
@@ -94,7 +93,7 @@ namespace salesforce_login_oauth_api_call
             };
             var responseMessage = await httpClient.SendAsync(request);
             var response = await responseMessage.Content.ReadAsStringAsync();
-            var salesforceAuthentificationResponse = JsonConvert.DeserializeObject<SalesforceAuthentificationResponse>(response);
+            var salesforceAuthentificationResponse = System.Text.Json.JsonSerializer.Deserialize<SalesforceAuthentificationResponse>(response);
 
             return salesforceAuthentificationResponse;
         }

@@ -5,8 +5,4 @@
     <RootNamespace>salesforce_login_oauth_api_call</RootNamespace>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-  </ItemGroup>
-
 </Project>

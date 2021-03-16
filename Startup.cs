@@ -25,7 +25,7 @@ namespace salesforce_login_oauth_api_call
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddSingleton<SalesforceService>();
+            services.AddSingleton<ISalesforceService, SalesforceService>();
 
             services.AddControllersWithViews();
 
